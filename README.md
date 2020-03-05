@@ -80,6 +80,7 @@ React:
 
 - [《Koa与Node.js开发实战》](https://book.douban.com/subject/30404722/)：也是经典，但大部分内容被本书涵盖，且本书更详细
 - [《深入浅出Node.js》](https://book.douban.com/subject/25768396/)：Node书籍的集大成者，虽然一部分技术已经过时，但是仍然值得购买并收藏
+- [《Node.js 设计模式》第2版](https://book.douban.com/subject/30159269/)：很不错的书籍
 - [《Node.js:来一打C++扩展》](https://book.douban.com/subject/30247892/)： 窥探Node底层的好书
 - [《Node.js调试指南》 ](https://github.com/nswbmw/node-in-debugging)：开源书籍
 
@@ -88,23 +89,17 @@ React:
 - [《前端面试之道》](https://yuchengkai.cn/docs/frontend/ )
 - [《Koa2进阶学习笔记》](https://chenshenhai.github.io/koa2-note/)
 
-#### Flutter资料
-
-- [《Flutter：从0到1构建大前端应用》](https://book.douban.com/subject/34455732/)
-- [Flutter实战](https://book.flutterchina.club/)：短小精悍的电子书
-
 ## 附录：笔记汇总
 
-**OverNote**地址：https://github.com/overnote   
-
-**推荐书籍**地址：https://github.com/ruyuejun/polaris  
+**OverNote**地址：https://github.com/overnote    
+**笔者的地址**：https://github.com/ruyuejun  
 
 **OverNote分类**：  
-- [Go](https://github.com/overnote/over-golang)：详尽的Go领域笔记：Go语法、Go并发编程、GoWeb编程、Go微服务等
-- [大前端](https://github.com/overnote/over-front-end)：包含JavaScript、Node.js、vue/react、微信开发、Flutter等大前端技术
+- [Golang](https://github.com/overnote/over-golang)：详尽的Go领域笔记：Go语法、Go并发编程、GoWeb编程、Go微服务等
+- [服务端架构](https://github.com/overnote/over-server)：分布式与微服务笔记，附Nginx、Mysql、Redis等常用服务端技术
+- [大前端](https://github.com/overnote/over-javascript)：包含JavaScript、Node.js、vue/react、微信开发、Flutter等大前端技术
+- [Python与机器学习](https://github.com/overnote/over-python)：Python相关笔记，完善中  
 - [数据结构与算法](https://github.com/overnote/over-algorithm)：以C/Go实现为主记录数据结构与算法的笔记
-- [分布式与微服务架构](https://github.com/overnote/over-architecture/)：分布式与微服务等架构相关笔记
 - [Linux](https://github.com/overnote/over-linux)：计算机组成原理、操作系统、计算机网络、编译原理基础学科笔记
-- [服务端常用技术](https://github.com/overnote/over-server)：nginx、mysql、redis、mongodb、linux系统基础等服务端常用技术汇总笔记
 - [大数据](https://github.com/overnote/over-bigdata)：大数据笔记，完善中
-- [Python](https://github.com/overnote/over-python)：Python相关笔记，完善中
+- [flutter](https://github.com/overnote/over-flutter)
