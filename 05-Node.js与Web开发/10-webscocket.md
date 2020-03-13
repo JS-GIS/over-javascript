@@ -129,7 +129,9 @@ ws.on('connection',sock=>{
 });
 ```
 ## 二 原生websocket
+
 ### 2.1 简介
+
 websocket其实是前端H5的内容，Node等后台是自带socket服务的，而Node本身的socket很底层，在上述案例中使用了第三方包io.socket来处理。
 使用源生net包来处理socket，得到的数据经过打印是：
 ```
@@ -151,7 +153,8 @@ Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
 我们需要对该数据进行解析：每行数据都是以 : + 空格形式 存在的键值对
 
 ### 2.2 服务端代码
-```
+
+```js
 //http,socket.io都是基于net模块制作的
 const net = require('net');
 const crypto = require('crypto');
@@ -218,8 +221,9 @@ net.createServer(sock=>{    //使用http接收会拒绝
     });
 }).listen(8000);
 ```
+
 ### 2.3 客户端代码
-```
+```html
 <script>
     let sock = new WebSocket('ws://localhost:8000');
 
@@ -245,6 +249,7 @@ net.createServer(sock=>{    //使用http接收会拒绝
     };
 </script>
 ```
+
 ### 2.4 数据帧解析数据
 计算机的数据都是由位构成的，1个位占据8。
 ```
