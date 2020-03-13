@@ -1,5 +1,5 @@
 ## 一 jQuery事件
-#### 1.1 jQuery事件机制
+### 1.1 jQuery事件机制
 jQuery的事件机制：指jQuery对JS操作DOM事件的封装：绑定、解绑、触发。
 常见jQuery事件：
 ```
@@ -23,7 +23,7 @@ jQuery的事件绑定发展历程：
     });
 4 on方式
 ```
-#### 1.2 on方式绑定事件
+### 1.2 on方式绑定事件
 ```javascript
 //on绑定事件书写方式一
 $('div').on('click mouseover',function(){
@@ -53,7 +53,7 @@ alert( $( this ).text() );
 ```
 如果一个元素被父级绑定了委托事件，自己也绑定了普通事件，优先执行委托事件。
 注意：on还有一个可选参数data，在事件函数内，data的访问方式是：e.data
-#### 1.3 jQuery移除事件绑定
+### 1.3 jQuery移除事件绑定
 
 bind与delegate事件的解绑：
 ```javascript
@@ -71,7 +71,7 @@ $(selector).off();              // 解绑匹配元素的所有事件
 $(selector).off("click");       // 解绑匹配元素的所有click事件
 $(selector).off( "click", "**" );   // 解绑所有代理的click事件，元素本身的事件不会被解绑 
 ```
-#### 1.4 jQuery事件对象
+### 1.4 jQuery事件对象
 jQuery的事件对象ev已经是兼容的。常见属性：
 ```
 ev.pageX----相对于文档
@@ -90,20 +90,20 @@ event.type 					事件类型：click，dbclick…
 event.which 					鼠标的按键类型：左1 中2 右3
 event.keyCode				键盘按键代码
 ```
-#### 1.5 事件触发
+### 1.5 事件触发
 事件触发是指在某些场景下，让某个元素去执行事件。
 ```javascript
 $(selector).click(); 						//简单事件触发：触发 click事件
 $(selector).trigger("click");				//让元素触发click事件，和上述相同
 $(selector).triggerHandler("click");	    //此方式不触发浏览器默认行为
 ```
-#### 1.6 阻止冒泡与默认行为
+### 1.6 阻止冒泡与默认行为
 ```javascript
 event.stopPropagation()		//阻止事件冒泡
 event.preventDefault(); 		//阻止默认行为
 // 如果：return false 则直接阻止全部
 ```
-#### 1.7 节流阀
+### 1.7 节流阀
 当类似onkeydown事件触发时，用户不停的按按按键，会反复触发，为了保证只触发一次，需要添加节流阀：
 ```javascript
 //按下1-9这几个数字键，能触发对应的mouseenter事件

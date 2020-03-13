@@ -30,7 +30,7 @@
 
 ## 资料
 
-#### 网页与动画
+### 网页与动画
 
 - [《HTML5与CSS3基础教程》第8版](https://book.douban.com/subject/25878992/)：HTML与CSS基础入门
 - [《HTML5秘籍》](https://book.douban.com/subject/11610880/)：H5全面了解书籍
@@ -38,7 +38,7 @@
 - [《HTML5+JavaScript动画基础》](https://book.douban.com/subject/24744218/)：目前最好的动画书籍
 - [《HTML5 Canvas核心技术》](https://book.douban.com/subject/24533314/)：目前最好的canvas书籍
 
-#### JavaScript
+### JavaScript
 
 语法基础：
 - [《JavaScript高级程序设计》第3版](https://book.douban.com/subject/10546125/)：小红书-最好的JS入门
@@ -76,7 +76,7 @@ React:
 - [《高性能JavaScript》](https://book.douban.com/subject/5362856/)
 - [《了不起的JavaScript工程师：从前端到全端高级进阶》](https://book.douban.com/subject/34788884/)：笔者力荐
 
-#### Node书籍
+### Node书籍
 
 - [《Node.js In Action》](https://book.douban.com/subject/25870705/)：Node基础入门书籍，内容繁杂，但是都点到为止
 - [《深入浅出Node.js》](https://book.douban.com/subject/25768396/)：Node书籍的集大成者，虽然一部分技术已经过时，但是仍然值得购买并收藏

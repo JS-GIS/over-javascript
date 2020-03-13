@@ -11,7 +11,7 @@ nest：号称与Java的著名框架Spring一样
 npm install express --save
 ```
 ## 二 路由与中间件
-#### 2.1 路由展示
+### 2.1 路由展示
 ```JavaScript
 const express = require('express');
 let app = express();
@@ -36,7 +36,7 @@ app.listen(3000);
 
 ```
 注意：express使用res.set和res.status取代了原生的res.writeHead()
-#### 2.2 常见路由API
+### 2.2 常见路由API
 ```
 app.get("网址",function(req,res){	});      //get请求
 app.post("网址",function(req,res){  });   //post请求
@@ -56,7 +56,7 @@ app.get("/",function(req,res){
     console.log("2");
 });
 ```
-#### 2.3 参数获取
+### 2.3 参数获取
 GET请求的参数在URL中，在原生Node中，需要使用url模块来识别参数字符串。在Express中，不需要使用url模块了。可以直接使用req.query对象。
 POST请求的参数在express中不能直接获得，必须使用body-parser模块。使用后，将可以用req.body得到参数。但是如果表单中含有文件上传，那么还是需要使用formidable模块。
 冒号参数引起的路由问题：
@@ -103,7 +103,7 @@ app.get("/admin/login",function(req,res){
     res.send("管理员登录");
 });
 ```
-#### 2.4 错误处理与端口设置
+### 2.4 错误处理与端口设置
 ```JavaScript
 
 const express = require('express');
@@ -208,13 +208,13 @@ let stuff = new test2({option:"test"});
 app.use(stuff.m1);
 ```
 ## 四 常用技术
-#### 4.1 静态服务
+### 4.1 静态服务
 ```JavaScript
 app.use(express.static("./public"));
 //一句话，就将public文件夹变为了静态服务文件夹。当然也可以指定访问路由名称：
 app.use('/test',express.static('public'));		//test是虚拟路径
 ```
-#### 4.2 模板引擎使用
+### 4.2 模板引擎使用
 ```JavaScript
 app.set("view engine","ejs");
 app.get("/",function(req,res){
@@ -226,12 +226,12 @@ app.get("/",function(req,res){
 app.engine('html',ejs.renderFile);
 app.set('view engine','html');
 ```
-#### 4.3 服务器安全
+### 4.3 服务器安全
 响应报头会包含大量服务端信息，在express中可以直接禁止：
 ```JavaScript
 app.disable(‘x-powered-by);
 ```
-#### 4.4 express正确处理ajax
+### 4.4 express正确处理ajax
 ```JavaScript
 app.post('/',function (req, res) {
     if (req.xhr || req.accept ('json,html') === 'json') {   //判断
@@ -242,7 +242,7 @@ app.post('/',function (req, res) {
     }
 });
 ```
-#### 4.5 错误处理
+### 4.5 错误处理
 一般情况下，普通的错误，重定向或者展示一个错误页面即可，express内部在执行路由时候，其实也是用到了tyr catch。但是这些并不是真正的捕获了异常。如下无法捕获：
 ```JavaScript
 app.get('/test', function (req, res) {

@@ -20,7 +20,7 @@ redirect_uri：授权成功后的回调地址
 access_token是本次授权所获得的授权码，在执行后续的API请求时需要同时提供此token以验证当前用户身份。  
 remind_in和expires_in为此token的有效期信息，超过时间限制，需要重新向用户申请授权。  
 ## 二 接口开发
-#### 2.1 所需接口与环境
+### 2.1 所需接口与环境
 ```
 OAuth2/authorize        引导用户授权token
 OAuth2/access_token     获取被授权的access_token
@@ -53,7 +53,7 @@ app.use((req, res, next)=>{
 
 app.listen(3000);
 ```
-#### 2.2 OAuth2/authorize
+### 2.2 OAuth2/authorize
 ```js
 //引导用户授权接口
 app.get("/OAuth2/authorize", (req, res)=>{
@@ -80,7 +80,7 @@ app.post("/OAuth2/authorize", (req, res)=>{
 
 });
 ```
-#### 2.3 换取access_token
+### 2.3 换取access_token
 ```js
 //换取access_token接口
 app.post("/OAuth2/authorize", (req, res)=>{
@@ -102,8 +102,8 @@ app.post("/OAuth2/authorize", (req, res)=>{
 });
 
 ```
-#### 2.4 access_token过期处理
+### 2.4 access_token过期处理
 由于用户量大后，经常需要处理access_token，我们可以在access_token后加入时间戳，先依据时间戳来判断是否过期，再查看校验具体的access_token。
-#### 2.5 安全问题
+### 2.5 安全问题
 大部分安全问题来自于app_sercret的泄露，可以通过重置该秘钥解决，如果用户的access_token泄露，则可以删除该token。  
 OAuth2采用https认证，不存在中间人攻击。  

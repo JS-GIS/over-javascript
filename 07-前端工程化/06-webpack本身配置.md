@@ -1,6 +1,6 @@
 ## 一 常见webpack本身配置
 
-#### 1.1 入口与出口
+### 1.1 入口与出口
 
 入口与出口可以分别配置：
 ```js
@@ -37,7 +37,7 @@ module.exports = {
 output的其他配置：
 - publicPath:   会给注入到html中的JS的src添加该前缀
 
-### 1.2 sourceMap
+###  1.2 sourceMap
 
 sourceMap可以映射打包后的代码错误点与源码错误点位置，方便调试。  
 配置方式：
@@ -51,11 +51,11 @@ devtool: ''cheap-module-source-map'
 
 ## 二 webpack-dev-server
 
-#### 2.1 -watch参数
+### 2.1 -watch参数
 
 webpack的打包命令如果添加了`watch`参数，则可以监听源码文件，当源码文件有改动时，则自动重新打包。
 
-#### 2.2 webpack-dev-server
+### 2.2 webpack-dev-server
 
 如果我们要实现watch的效果，且能自动打开浏览器，刷新浏览器，那么需要使用webpack-dev-server,该工具会使contentBase配置中的目录成为服务器静态文件目录。  
 

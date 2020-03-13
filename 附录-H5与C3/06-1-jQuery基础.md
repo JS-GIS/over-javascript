@@ -1,5 +1,5 @@
 ## 一 jQuery初步使用
-#### 1.1 jQuery简介
+### 1.1 jQuery简介
 原生JS痛点：
 - window.onload事件只能出现一次，多次出现会覆盖之前的事件
 - 兼容性复杂
@@ -10,7 +10,7 @@ jQuery的API都是方法，即要加小括号()，小传入的参数不同，功
 版本二：2.x版本，不兼容IE6/7/8
 版本三：3.x版本，更精简，不再兼容低版IE
 ```
-#### 1.2 jQuery使用步骤
+### 1.2 jQuery使用步骤
 ```javascript
 <script src="./jQuery-1.11.3.min.js"></script> <!-- 引包 -->
 <script>
@@ -29,13 +29,13 @@ jQuery的API都是方法，即要加小括号()，小传入的参数不同，功
 - \$实际上表示的是一个函数，即jQuery函数：  jQuery ===$;
 - jQuery事件不带on
 
-#### 1.3 jQuery入口函数与JS入口函数
+### 1.3 jQuery入口函数与JS入口函数
 JS的入口函数是：window.onload = function() { };
 jQuery的入口函数是：$(function(){ });
 区别：
 - JS入口函数只能出现一次，出现多次会存在事件覆盖的问题，jQuery入口函数可以书写多次，没有覆盖问题。
 - S入口函数是在所有的 文件资源 加载完成后才执行，jQuery入口函数在 文档 加载完后执行，即无需外部资源加载，DOM树加载完成就执行
-#### 1.4 jQuery对象和DOM对象
+### 1.4 jQuery对象和DOM对象
 DOM对象：使用JS操作DOM返回的对象；
 jQuery对象：使用jQuery操作DOM获得的对象，内部是一个对DOM对象进行包装后的伪数组
 jQuery对DOM对象封装后，就不需要大量重复的遍历，且能更好的实现兼容问题。
@@ -49,7 +49,7 @@ jQuery对象转换为DOM对象：
 
 ```
 ## 二 jQuery选择器
-#### 2.1 基本选择器
+### 2.1 基本选择器
 ```
 id选择器        $('#btn');
 类选择器        $('.btn');
@@ -57,18 +57,18 @@ id选择器        $('#btn');
 选择器的交集    $(.div,.green')		选择class为div，或class为green的元素
 选择器的并集    $('.div.green')		选择class为div，且class为green的元素
 ```
-#### 2.2 层级选择器
+### 2.2 层级选择器
 ```
 后代选择器（空格）：	$('#ul li')		选择id为ul的元素的所有后代li 
 子代选择器（>）：		$('#ul > li')	选择id为ul的元素的直系后代li
 ```
-#### 2.3 过滤选择器
+### 2.3 过滤选择器
 ```
 :eq(index)	选择匹配索引的元素		    $('li:eq(2)')选择索引号为2的li
 :odd		选择匹配奇数索引元素		$('li:odd')
 :even		选择匹配偶数索引元素		$('li:even')
 ```
-#### 2.4 筛选选择器
+### 2.4 筛选选择器
 ```
 查找所有后代元素:find(selector)
 $(“#j_wrap”).find(“li”).css(“color”, “red”);
@@ -98,7 +98,7 @@ $(“li”).eq(2).css(“color”, “red”);   //选择所有li元素中的第
 slice(start,end):返回选择元素集合从第start-end位置的元素
 ```
 ## 三 jQuery的DOM操作
-#### 3.1 jQuery操作样式
+### 3.1 jQuery操作样式
 ```javascript
 // 注意点：操作类样式的时候，所有的类名都不带点
 
@@ -120,7 +120,7 @@ $(selector).hasClass(“liItem”);
 $(selector).toggleClass(“liItem”);
 
 ```
-#### 3.2 节点操作
+### 3.2 节点操作
 ```javascript
 
 //创建元素 $() 或者 节点.html()
@@ -160,7 +160,7 @@ $(selector).clone();        //复制匹配的元素，返回值为复制的新�
 $(selector).clone(true);	//同时复制操作行为
 
 ```
-#### 3.3 属性操作
+### 3.3 属性操作
 使用style获取的都采用css()方法设置，在标签里书写的样式，使用attr()获取。
 ```
 attr():
@@ -174,7 +174,7 @@ prop方法通常用来影响DOM元素的动态状态，而不是改变的HTML属
 
 
 ```
-#### 3.4 快速操作表单-数据串联
+### 3.4 快速操作表单-数据串联
 ```html
 <form>
     <input type="text" name="a" value="1">
@@ -199,7 +199,7 @@ prop方法通常用来影响DOM元素的动态状态，而不是改变的HTML属
     });
 
 ```
-#### 3.5 操作尺寸位置
+### 3.5 操作尺寸位置
 ```javascript
 //设置宽高 weight height
 $(selector).height();       //获取高度
@@ -237,7 +237,7 @@ $(“div”).scrolllLeft();	    // 被卷曲的宽度，即相对于滚动条左
 */
 
 ```
-#### 3.6 filter has not
+### 3.6 filter has not
 ```javascript
 $('div').filter('#div1').css('background','red');
 $('div').has('span').css('background','green');
@@ -246,7 +246,7 @@ filter():	过滤
 not()：		filter的反义词
 has()：		has查看的是当前元素是否包含，filter过滤的是所有同级元素
 ```
-#### 3.7 常见案例 全选/反选
+### 3.7 常见案例 全选/反选
 ```js
 $(selector).prop("checked", true);          //全选
 $(selector).prop("checked", false);         //全不选

@@ -41,7 +41,7 @@ npm i -D babel-loader@7 babel-core babel-preset-env
 
 ## 二 babel转换函数
 
-#### 2.0 babel无法转换的语法
+### 2.0 babel无法转换的语法
 
 虽然babel把ES6解析为了ES5，但是仍然有许多变量在低版本不支持，比如：Promise,Set,Symbol,Array.from,async等。  
 
@@ -81,7 +81,7 @@ options: {
 }
 ```
 
-#### 2.1 原理解读
+### 2.1 原理解读
 
 ```js
 
@@ -174,7 +174,7 @@ var bar = exports.bar = function bar(a, b) {
 ```
 transform 的引用是 module 级别的，这意味着在多个 module 使用时会带来重复的引用，这在多文件的项目里可能带来灾难。另外，你可能也并不想一个个的去添加自己要用的 plugin，如果能自动引入该多好。
 
-#### 2.2 解决方案
+### 2.2 解决方案
 前面提到问题主要在于方法的引入方式是内联的，直接插入了一行代码从而无法优化。鉴于这样的考虑，babel 提供了 babel-plugin-transform-runtime，从一个统一的地方 core-js自动引入对应的方法。
 ```
 npm i -D @babel/plugin-transform-runtime
@@ -197,7 +197,7 @@ export const bar = (a, b) => {
 ```
 我们会发现上述 o.assign(a, b)被原模原样的编译了。同时，因为 babel-plugin-transform-runtime 依然不是全局生效的，因此实例化的对象方法则不能被 polyfill，比如 [1,2,3].includes 这样依赖于全局 Array.prototype.includes 的调用依然无法使用。
 
-#### 2.3 babel-polyfill
+### 2.3 babel-polyfill
 
 上面两种 polyfill 方案共有的缺陷在于作用域。因此 babel 直接提供了通过改变全局来兼容 es2015 所有方法的 babel-polyfill，安装 babel-polyfill 后你只需要在所有代码的最前面加一句 import 'babel-polyfill' 便可引入它，如果使用了 webpack 也可以直接在 entry 中添加 babel-polyfill 的入口。
 ```js
@@ -216,7 +216,7 @@ babel-polyfill 在项目代码前插入所有的 polyfill 代码，为你的程�
 
 以上内容出自：https://zhuanlan.zhihu.com/p/27777995
 
-#### 2.4 babel-preset-env
+### 2.4 babel-preset-env
 
 回到应用开发。通过自动识别代码引入 polyfill 来优化看来是不太靠谱的，那是不是就无从优化了呢？并不是。还记得 babel 推荐使用的 babel-preset-env 么？它可以根据指定目标环境判断需要做哪些编译。而在张克炎大神的建议下，babel-preset-env 也支持针对指定目标环境选择需要的 polyfill 了，只需引入 babel-polyfill，并在 babelrc 中声明 useBuiltIns，babel 会将引入的 babel-polyfill 自动替换为所需的 polyfill。
 ```
@@ -232,7 +232,7 @@ babel-polyfill 在项目代码前插入所有的 polyfill 代码，为你的程�
   ]
 }
 ```
-#### 2.5 总结
+### 2.5 总结
 解决上述问题有两种方案。
 方案一：
 ```js

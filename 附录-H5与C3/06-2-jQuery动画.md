@@ -1,5 +1,5 @@
 ## 一 jQuery动画
-#### 1.1 显示/隐藏 show/hide
+### 1.1 显示/隐藏 show/hide
 ```javascript
 $(selector).show();                         //作用同于 css(“display”, ”block”)
 $(selector).show(2000);	                    //带参，表示 多少毫秒内执行完毕
@@ -8,7 +8,7 @@ $(selector).show("slow");                    //常用参数值
 
 //hide用法同上
 ```
-#### 1.2 滑入/滑出 slideDown/slideUp
+### 1.2 滑入/滑出 slideDown/slideUp
 该方法可以让元素采用下拉/上拉效果展示/隐藏
 ```javascript
 $(selector).slideDown(speed,callback);
@@ -16,14 +16,14 @@ $(selector).slideUp(speed,callback);
 $(selector).slideToggle(speed,callback);    //滑入滑出切换动画效果
 ```
 注意：以上方法省略参数或者传入不合法的字符串，那么则使用默认值：400毫秒
-#### 1.3 淡入/淡出 fadeIn/fadeOut
+### 1.3 淡入/淡出 fadeIn/fadeOut
 ```javascript
 $(selector).fadeIn(speed, callback);
 $(selector).fadeOut(1000);
 //淡入淡出切换动画效果：通过改变透明度，切换匹配元素的显示或隐藏
 $(selector).fadeToggle('fast',function(){});
 ```
-#### 1.4 改变透明度fadeTo
+### 1.4 改变透明度fadeTo
 与淡入淡出的区别：淡入淡出只能控制元素的不透明度从 完全不透明 到完全透明；而fadeTo可以指定元素不透明度的具体值。时间参数是必需的！
 ```javascript
 // 参数一：时长， 参数二：不透明度值，取值范围：0-1
@@ -33,7 +33,7 @@ $(selector).fadeTo(1000, .5);   //  0全透，1全不透
 $(selector).fadeTo(0, .5);
 
 ```
-#### 1.5 停止动画
+### 1.5 停止动画
 如果一个以上的动画方法在同一个元素上调用，那么对这个元素来说，后面的动画将被放到效果队列中。这样就形成了动画队列， 动画队列里面的动画不会执行，直到第一个动画执行完成。所以有时候需要停止动画：
 ```javascript
 $(selector).stop(clearQueue,jumpToEnd);
@@ -48,7 +48,7 @@ $("#test").hide(500).stop();
 ```
 
 注意：如果元素动画还没有执行完，此时调用sotp()方法，那么动画将会停止。并且动画没有执行完成，那么回调函数也不会被执行。
-#### 1.6 自定义动画
+### 1.6 自定义动画
 自定义动画：执行一组CSS属性的自定义动画
 ```javascript
 //第一个参数 : {} 运动的值和属性

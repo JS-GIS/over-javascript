@@ -1,5 +1,5 @@
 ## 一 offset
-#### 1.1 offset简介
+### 1.1 offset简介
 offset用于获取元素的位置、尺寸。
 主要属性包括：
 ```
@@ -16,14 +16,14 @@ offsetParent    返回父级盒子中带有定位的父盒子节点
 注意：元素.style.height 是无法获取高度的，因为元素还会有内容撑开，但是元素使用内嵌式设置高度可以获取:
 <div style=”height:50px;”>
 ```
-#### 1.2 offset系列与style系列区别
+### 1.2 offset系列与style系列区别
 offset系列可以返回没有定位盒子的距离上/左的位置（四舍五入取整），style.不可以（因为只有定位的盒子才有left、top之类的值）。
 同样：style.left只能是行内样式的值才可以被获取。
 offset系列 返回的是数字，而 style.返回的是字符串+单位px；
 offset系列只可获取值，而 style.系列 还可以赋值；
 如果没有给 HTML 元素指定过 类似top 样式，则类似style.top 返回的是空字符串。
 ## 二 事件对象属性page与client
-#### 2.1 常见事件对象属性
+### 2.1 常见事件对象属性
 ![](/images/JavaScript/JavaScript-01.png)
 ```
 pageY/pageX: 

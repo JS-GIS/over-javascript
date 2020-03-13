@@ -170,7 +170,7 @@ JSX中的标签的属性支持...展开与重写：
 <Hello name="lisi" {...obj} foo={'override'}/>
 ```
 ## 四 组件
-#### 4.1 构造函数方式创建组件
+### 4.1 构造函数方式创建组件
 构造函数就是React的组件，组件可以直接以标签的形式使用。
 ```JavaScript
 function MyDiv(){
@@ -187,7 +187,7 @@ ReactDOM.render(
 
 ```
 注意：函数的首字母必须大写，因为React解析标签时候按照首字母区分，如果是小写按照普通标签处理，如果是大写，按照组件形式处理。
-#### 4.2 传值给组件
+### 4.2 传值给组件
 组件外有一个对象，组件内不能直接使用该对象，必须在 构造函数 参数列表中，定义props属性接收。
 ```JavaScript
 const person = {
@@ -207,9 +207,9 @@ ReactDOM.render(
 
 ```
 注意：组件内部不能修改对象的字段值，通过props得到的任何数据都是只读的。
-#### 4.3 组件化
+### 4.3 组件化
 上述基于构造函数的组件仍然是书写在index.js中，我们可以新建一个独立的js文件，该js文件即上述构造函数代码，并且导出：export default MyDiv
-#### 4.4 class方式创建组件
+### 4.4 class方式创建组件
 ```JavaScript
 //继承react组件，MyDiv2才能是组件
 class MyDiv2 extends React.Component { 
@@ -229,14 +229,14 @@ ReactDOM.render(
 ```
 class创建的组件其实和构造函数方式类似，props都是只读的。
 注意：如果class的构造器内部不能使用this.props.name这样获取，需要直接将props作为参数传递进来。
-#### 4.5 有状态组件与无状态组件
+### 4.5 有状态组件与无状态组件
 class创建的组件内部拥有一个 this.state属性，用来存放自己的私有数据，是可读可写的！，那么我们这样分类：
 ```
 有状态组件：class创建的组件，拥有this.state属性，有自己的声明周期函数
 无状态组件：构造函数创建的组件，没有state属性，也没有自己的生命周期函数
 如果一个组件需要存放自己的私有数据，或者再组件的不同阶段执行不同的逻辑，推荐使用class方式创建有状态组件。
 ```
-#### 4.6 使用css
+### 4.6 使用css
 推荐使用import的方式引入css，但是直接引入的结果会是空对象，需要开启模块化：
 ```
     {test:/\.css$/, use:['style-loader','css-loader?modules']}

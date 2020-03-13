@@ -1,5 +1,5 @@
 ## 一 React路由
-#### 1.1 路由依赖
+### 1.1 路由依赖
 React路由依赖包是： react-router-dom；经常使用的部分是：
 ```JavaScript
 import {HashRouter, Route, Link} from 'react-router-dom';
@@ -7,7 +7,7 @@ import {HashRouter, Route, Link} from 'react-router-dom';
 HashRouter：	表示路由的根容器；
 Route：		表示路由规则，拥有2个重要属性path，component
 Link：			表示一个路由的链接
-#### 1.2 完整案例展示
+### 1.2 完整案例展示
 注意：以下代码使用jsx，webpack中需要有对应的文件配置。
 项目结构在helloworld基础上配置如下：
 ![](/images/JavaScript/react-02.png)
@@ -55,7 +55,7 @@ export default class App extends React.Component {
 }
 
 ```
-#### 1.3 路由参数传递
+### 1.3 路由参数传递
 默认情况下，路由中的规则，是模糊匹配的，如果路由可以部分匹配成功，就会展示这个路由对应的组件，
 如果要匹配参数，可以在匹配规则中，使用：修饰符，表示这个位置匹配到的是参数。
 ```

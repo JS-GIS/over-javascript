@@ -1,16 +1,16 @@
 ## 一 视图相关概念
-#### 1.1 常用名词解释
+### 1.1 常用名词解释
 - props：属性，就是element上的attrs，换个名字property，变成复数，即props。从父组件传递进来的props属性，都可以被监听到！
 - state：按钮有三态，Normal，Highlight，Selected，包括extjs，jquery里的大部分ui框架都是有状态的
 - event：其实还应该算一个dom事件，下面的例子就把onChange的handler编译后的handleChange方法
-#### 1.2 props：父组件数据传递给直接子组件
+### 1.2 props：父组件数据传递给直接子组件
 从父组件传递属性到子组件：
 ```JavaScript
 //父组件：<Hello name="lisi" />>
 //子组件中获取name的方式
 let { name } = this.props;
 ```
-#### 1.3 context:父组件数据传递给跨级子组件
+### 1.3 context:父组件数据传递给跨级子组件
 props传递数据只能一个组件一个组件传递，context可以实现跨组件传递。
 注意：使用context必须进行属性验证。
 ```JavaScript
@@ -43,7 +43,7 @@ export default class Son extends Component {
 }=
 Son.contextTypes = contextTypes;
 ```
-#### 1.4 state
+### 1.4 state
 state在构造函数中定义，类似Angular中的$scope:
 ```JavaScript
 import React, {Component} from 'react';
@@ -65,7 +65,7 @@ export default class Hello extends Component {
 }
 ```
 如果要给state里的属性赋值，需要使用this.setState
-#### 1.5 this指向
+### 1.5 this指向
 在react绑定this指向推荐的做法是在构造函数中绑定：
 ```JavaScript
 class App extends Component{
@@ -79,7 +79,7 @@ class App extends Component{
 }
 ```
 ## 二 事件处理
-#### 2.1 绑定事件
+### 2.1 绑定事件
 ```JavaScript
 import React, {Component} from 'react';
 import {render} from 'react-dom';
@@ -100,7 +100,7 @@ export default class LinkButton extends Component {
     }
 }
 ```
-#### 2.2 参数传递
+### 2.2 参数传递
 ES6写法：给事件处理函数传递额外参数的方式：bind(this, arg1, arg2, ...)
 ```
 render: function() {
@@ -112,7 +112,7 @@ handleClick: function(param1,param2,param3, event) {
 
 ```
 ## 三 DOM操作
-####  3.1 获取组件
+###  3.1 获取组件
  ReactDOM.render 组件返回的是对组件的引用也就是组件实例（对于无状态状态组件来说返回 null），JSX 返回的不是组件实例，它只是一个 ReactElement 对象。
  当组件加载到页面上之后（mounted），你都可以通过 react-dom 提供的 findDOMNode() 方法拿到组件对应的 DOM 元素。（但是过于老旧，不推荐）
  ```
@@ -133,7 +133,7 @@ componentDidMound() {
 - 不要在 render 或者 render 之前访问 refs
 - 不要滥用 refs，比如只是用它来按照传统的方式操作界面 UI：找到 DOM -> 更新 DOM
 ## 四 react中的表单
-#### 4.1 状态属性
+### 4.1 状态属性
 表单元素有这么几种属于状态的属性：
 - value，对应 input 和 textarea 所有
 - checked，对应类型为 checkbox 和 radio 的 input 所有
@@ -141,7 +141,7 @@ componentDidMound() {
 在 HTML 中 textarea 的值可以由子节点（文本）赋值，但是在 React 中，要用 value 来设置。
 表单元素包含以上任意一种状态属性都支持 onChange 事件监听状态值的更改。
 针对这些状态属性不同的处理策略，表单元素在 React 里面有两种表现形式。
-#### 4.2 受控组件
+### 4.2 受控组件
 对于设置了上面提到的对应“状态属性“值的表单元素就是受控表单组件，比如：
 ```JavaScript
 render: function() {
@@ -166,12 +166,12 @@ handleChange: function(event) {
     this.setState({value: event.target.value.substr(0, 140)});
 }
 ```
-#### 4.3 非受控属性
+### 4.3 非受控属性
 和受控组件相对，如果表单元素没有设置自己的“状态属性”，或者属性值设置为 null，这时候就是非受控组件。
 它的表现就符合普通的表单元素，正常响应用户的操作。
 同样，你也可以绑定 onChange 事件处理交互。
 如果你想要给“状态属性”设置默认值，就要用 React 提供的特殊属性 defaultValue，对于 checked 会有 defaultChecked，<option> 也是使用 defaultValue。
-#### 4.4 为什么要有受控组件
+### 4.4 为什么要有受控组件
 引入受控组件不是说它有什么好处，而是因为 React 的 UI 渲染机制，对于表单元素不得不引入这一特殊的处理方式。
 在浏览器 DOM 里面是有区分 attribute 和 property 的。attribute 是在 HTML 里指定的属性，而每个 HTML 元素在 JS 对应是一个 DOM 节点对象，这个对象拥有的属性就是 property（可以在 console 里展开一个 DOM 节点对象看一下，HTML attributes 只是对应其中的一部分属性），attribute 对应的 property 会从 attribute 拿到初始值，有些会有相同的名称，但是有些名称会不一样，比如 attribute class 对应的 property 就是 className。（详细解释：.prop，.prop() vs .attr()）
 回到 React 里的 <input> 输入框，当用户输入内容的时候，输入框的 value property 会改变，但是 value attribute 依然会是 HTML 上指定的值（attribute 要用 setAttribute 去更改）。
@@ -182,7 +182,7 @@ render: function() {
 }
 ```
 在任意时刻，这个视图总是返回一个显示 hello 的输入框。
-#### 4.5 <select>的处理
+### 4.5 <select>的处理
 在 HTML 中 <select> 标签指定选中项都是通过对应 <option> 的 selected 属性来做的，但是在 React 修改成统一使用 value。
 所以没有一个 selected 的状态属性。
 ```JavaScript

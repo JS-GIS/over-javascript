@@ -53,7 +53,7 @@ $ npm install --save-dev babel-preset-stage-3
 
 ## 三 gulp 
 
-#### 3.1 gulp使用
+### 3.1 gulp使用
 
 ```
 1 先全局安装：	npm install gulp -g  (需要全局安装原因：gulp是命令行工具)
@@ -67,9 +67,9 @@ $ npm install --save-dev babel-preset-stage-3
 4 命令行执行： gulp default	//由于default是默认任务，这里可以省略
 ```
 
-#### 3.2 任务
+### 3.2 任务
 
-##### 3.2.1 定义任务
+### #3.2.1 定义任务
 
 ```js
 gulp.task('js',function () {
@@ -87,7 +87,7 @@ gulp.pipe() 管道，将需要构建的资源“输送”给插件。
 gulp.dest() 构建任务完成后资源存放的路径（会自动创建）
 ```
 
-##### 3.2.2 watch
+### #3.2.2 watch
 
 watch用于监视文件的改变，自动构建：
 ```js
@@ -97,7 +97,7 @@ gulp.task('js',function () {
 });
 ```
 
-##### 3.2.3 任务依赖
+### #3.2.3 任务依赖
 
 不同任务间存在依赖关系时，可以指定依赖，如下图：
 ```js
@@ -106,13 +106,13 @@ gulp.task('less',['依赖1','依赖2','依赖3'],function(){
 });
 ```
 
-#### 3.3 Gulp工作原理
+### 3.3 Gulp工作原理
 
 Gulp本身只有文件复制等基础API，通过不同的插件实现构建任务，Gulp只是按着配置文件调用执行了这些插件。
 
-#### 3.4 插件使用
+### 3.4 插件使用
 
-##### 3.4.1 使用步骤
+### #3.4.1 使用步骤
 
 比如需要编译less，需要先安装编译less的gulp插件：npm install gulp-less -S
 ```js
@@ -125,7 +125,7 @@ gulp.task('less',function () {
 });
 ```
 
-##### 3.4.2 gulp服务器插件
+### #3.4.2 gulp服务器插件
 ```js
 const gulp = require('gulp');
 const connect = require('gulp-connect');
@@ -146,7 +146,7 @@ gulp.src('src/**/*.*')
 });
 ```
 
-##### 3.4.3 常用gulp插件
+### #3.4.3 常用gulp插件
 ```
 gulp-less 		编译LESS文件
 gulp-cssmin 		压缩CSS
@@ -163,7 +163,7 @@ gulp-useref
 gulp-if
 ```
 
-#### 3.5 缓存处理
+### 3.5 缓存处理
 浏览器在加载html网页时，网页内部的css，js，图片都会再次让浏览器发起请求，多次刷新html页面时，这些东西就会造成资源浪费，浏览器因此有了缓存系统，会将css等内容缓存下来。同时，也带来了弊病，一旦后台有修改，前台刷新无法及时获取最新的网页内容。
 浏览器缓存机制：按资源路径和资源名缓存，使用 index.css?v=时间戳”  命名css
 这样书写就会造成每次出现的资源名都会不一样，就可以解决缓存问题。

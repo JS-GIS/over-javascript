@@ -2,7 +2,7 @@
 
 插件可以使webpack的打包更加便捷，对打包提供了一些额外支持。
 
-#### 1.1 移动html插件 html-webpack-plugin
+### 1.1 移动html插件 html-webpack-plugin
 
 在之前的loader章节，html文件并未被移动，对开发造成了很大困扰，使用插件`html-webpack-plugin`会将源码中的html页面从src拷贝到dist下，且会自动将入口文件打包的js文件插入html页面的script标签中。
 
@@ -41,11 +41,11 @@ module.exports = {
 ```
 此时我们在项目根目录创建index.html,无需引入index.js，打包后index.js自动被引入了index.html中。
 
-#### 1.2 去除注释插件
+### 1.2 去除注释插件
 
 去除注释插件为：`uglifyjs-webpack-plugin`,但是webpack4 不再需要该插件，因为在打包时候如果使用了`mode`为`production`，则自动去除注释。
 
-#### 1.4 jquery与全局变量
+### 1.4 jquery与全局变量
 
 jquery可以使用传统的script标签形式引入，但有了webpack，可以使用更加模块化的方式：
 ```js
@@ -72,7 +72,7 @@ new webpack.ProvidePlugin({
 此时webpack在bootstrap源码中偷偷加入`import "jquery"`
 
 
-#### 1.4 其他常用插件
+### 1.4 其他常用插件
 
 ```
 clean-webpack-plugin    删除目录插件 			
@@ -83,7 +83,7 @@ copy-webpack-plugin     拷贝文件插件
 
 ## 二 提取公共代码
 
-#### 2.1 提取公共代码
+### 2.1 提取公共代码
 webpack内置了提取公共代码的插件，主要针对多页面配置：
 ```
 entry: {
@@ -119,7 +119,7 @@ vendor是默认该项目引入的一系列第三方包，其他入口的功用�
         chunks: ['pageA', 'pageB']
     })
 ```
-#### 2.2 提取公共CSS插件
+### 2.2 提取公共CSS插件
 旧版webpack使用插件：extract-text-webpack-plugin 。
 新版推荐使用插件：mini-css-extract-plugin
 

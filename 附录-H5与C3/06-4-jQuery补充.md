@@ -50,7 +50,7 @@ console.log($.leftTrim(str));
 
 ```
 ## 四 jQuery缓存机制
-#### 4.1 斐波那契数列性能问题案例
+### 4.1 斐波那契数列性能问题案例
 ```javascript
 //斐波那契数列实现：f(n) = f(n-1) + f(n - 2)
 let count = 0;
@@ -122,7 +122,7 @@ let fn = createFib();
 fn(6);
 console.log(count);
 ```
-#### 4.2 jQuery缓存分析
+### 4.2 jQuery缓存分析
 ```javascript
 function createCache() {
     let keys = [];
@@ -151,7 +151,7 @@ typeCache("monitor3", "彭于晏");
 console.log(typeCache["monitor3 "]);
 // console.log(typeCache["monitor "]);
 ```
-#### 4.3 完整的jQuery缓存处理
+### 4.3 完整的jQuery缓存处理
 ```javascript
 //eleCache
 //typeCache
@@ -195,7 +195,7 @@ eleCache("name", "高金彪");
 console.log(eleCache("name"));
 let typeCche = createCache();
 ```
-#### 4.4 斐波那契数列最终版
+### 4.4 斐波那契数列最终版
 ```javascript
 // 创建缓存容器
 

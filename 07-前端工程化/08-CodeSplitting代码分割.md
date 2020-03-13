@@ -1,6 +1,6 @@
 ## 一 CodeSplitting代码分割入门
 
-#### 1.1 手动代码分割
+### 1.1 手动代码分割
 
 比如现在有一个业务文件：index.js
 ```js
@@ -27,7 +27,7 @@ entry: {
 console.log(_.join(['a','b','c'],"***"));
 ```
 
-#### 1.2 使用webpack4代码分割工具
+### 1.2 使用webpack4代码分割工具
 
 在第一章，其实还是做了人工代码分割，在webpack4中，内部自带了自动代码分割的插件。  
 
@@ -53,7 +53,7 @@ console.log(_.join(['a','b','c'],"***"));
 打包后生成`vendors~main.js`，并被html文件引入。  
 
 
-#### 1.3 加载异步模块（懒加载） 
+### 1.3 加载异步模块（懒加载） 
 
 上述代码中，import是同步加载了一个文件，有些情况下会引用一些异步组件
 ```js
@@ -109,7 +109,7 @@ splitChunks: {              //该值如果为{}，则走默认配置
 
 ## 三  CSS代码分割
 
-#### 3.1 入口文件与引入文件打包的不同
+### 3.1 入口文件与引入文件打包的不同
 
 ```js
 entry:{
@@ -121,7 +121,7 @@ output: {
 }
 ```
 
-#### 3.2 CSS代码分割插件MiniCssExtractPlugin
+### 3.2 CSS代码分割插件MiniCssExtractPlugin
 
 当直接在js文件中使用import直接引入css文件时，webpack的`css-loader`将会采取`css in js`的方式打包，即不会生成该js文件。  
 

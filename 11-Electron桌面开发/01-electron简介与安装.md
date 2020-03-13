@@ -19,7 +19,7 @@ npm i electron -g
 
 ## 三 HelloWorld
 
-#### 3.1 手动书写一个HelloWorld
+### 3.1 手动书写一个HelloWorld
 
 初始化一个node.js项目，分别包含：
 - main.js：项目入口文件
@@ -71,7 +71,7 @@ app.on('activate', () => {
 electron .
 ```
 
-#### 3.2 使用官方示例
+### 3.2 使用官方示例
 
 直接使用官网的quick start案例：
 ```

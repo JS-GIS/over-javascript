@@ -1,6 +1,6 @@
 ## 一 http模块
 
-#### 1.1 简单的web程序性
+### 1.1 简单的web程序性
 
 ```JavaScript
 const http = require('http');
@@ -34,13 +34,13 @@ server.on('request', function (req, res) {
 server.listen(8081, 'localhost');
 ```  
 
-#### 1.2 Node没有web容器
+### 1.2 Node没有web容器
 
 在Java、php等语言中，还需要一个web容器来存放web资源（如Java的Tomcat，PHP的Apache），而Node没有这样的概念。
 所以，Node很难提供一个静态文件服务，也就是说，node.js中，如果看见一个网址是：127.0.0.1:3000/fang，不一定有fang这个文件夹。
 即：URL和真实物理文件，是没有关系的，URL是通过了Node的顶层路由设计，呈递某一个静态文件的。
 
-#### 1.3 http模块常见api
+### 1.3 http模块常见api
 
 http.IncomingMessage是http请求信息，提供了3个事件：
 - data：当请求数据到来时触发；
@@ -143,7 +143,7 @@ function sendData(filePath, req, res) {
 server.listen(8081, 'localhost');
 ```
 ## 二 静态资源管理
-#### 2.1 简单实现
+### 2.1 简单实现
 ```JavaScript
 const http = require('http');
 const fs = require('fs');
@@ -185,7 +185,7 @@ function getMime(extname) {
 }
 
 ```
-#### 2.2 静态资源缓存
+### 2.2 静态资源缓存
 每次请求服务器的静态资源，都会造成IO上的浪费，那么我们可以使用缓存来优化性能。当浏览器中有缓存副本时，不确定该副本是否有效，会生成一个get请求，在该请求的header中包含一个if-modified-since时间参数。如果服务器端文件在这个时间参数后修改过了，服务器发送全部文件给客户端，如果没有，则返回304状态码，并不发送整个文件。
 如果确定该副本有效，客户端不会发送GET请求。判断有效的方法是：服务端响应头上带有expires头。
 Expires：是一个毫秒值，如果该值小于当前时间，则不缓存。
@@ -269,11 +269,11 @@ let CACHETIME = 60*60*24*7;
 
 ```
 ## 三 处理请求
-#### 3.1 表单的提交方式
+### 3.1 表单的提交方式
 application/x-www-form-urlencoded		默认提交方式，即url编码方式
 text/plain								用的很少，纯文字提交
 multipart/form-data					提交文件
-#### 3.2 GET请求
+### 3.2 GET请求
 ```JavaScript
 const http = require('http');
 const url = require('url');
@@ -286,7 +286,7 @@ http.createServer((req,res)=>{
     res.end('hello');
 }).listen(8000);
 ```
-#### 3.3 POST请求
+### 3.3 POST请求
 ```JavaScript
 const http = require('http');
 const querystring = require('querystring');
@@ -303,7 +303,7 @@ http.createServer((req,res)=>{
 }).listen(8000);
 ```
 ## 四  文件上传
-#### 4.1 原生文件上传
+### 4.1 原生文件上传
 在POST请求说明中，使用了字符串变量str来接收，如果上传的是文本文件，则仍然是正确的，但是如果上传的是图片、音频等，这里就无法实现了，我们可以使用数组的形式保存：
 ```JavaScript
 const http = require('http');
@@ -322,7 +322,7 @@ server.listen(8000,function () {
     console.log('server is started...');
 });
 ```
-#### 4.2 第三方模块 formidable 
+### 4.2 第三方模块 formidable 
 ```JavaScript
 const url = require('url');
 const http = require('http');

@@ -1,9 +1,9 @@
 ##  1、 vuex相关概念
-#### 1.1 vuex是什么？
+### 1.1 vuex是什么？
 
 vuex是vue的一个插件；是对vue应用中多个组件的共享状态进行集中式的管理（读/写）；
 
-####  1.2 什么是“状态管理模式”？
+###  1.2 什么是“状态管理模式”？
 
 状态自管理应用包含以下几个部分：
 + state——驱动应用的数据源；
@@ -44,7 +44,7 @@ new Vue({
 ![](../images/JavaScript/vue-flow1.jpg)
   
 
-#### 1.3 多组件共享状态问题
+### 1.3 多组件共享状态问题
 
 + 多个视图依赖于同一个状态
 + 来自不同视图的行为需要变更同一个状态
@@ -57,7 +57,7 @@ new Vue({
 
 ## 2 vuex的核心概念和API
 
-#### 2.1 state
+### 2.1 state
 + vuex 管理的状态对象,里面会包含一些具体的状态。
 + 它应该是唯一的
 ```js
@@ -66,7 +66,7 @@ new Vue({
   }
   
 ```
-#### 2.2 mutations
+### 2.2 mutations
 + 包含多个直接更新 state 的方法（回调函数）的对象；
 + 谁来触: action 中的 commit(mutation名称)；
 + 只能包含同步的代码，不能写异步的代码；
@@ -78,7 +78,7 @@ new Vue({
   }
   ```
 
-#### 2.3 actions
+### 2.3 actions
 + 包含多个事件回调函数的对象,通过组件来触发；
 + 通过执行 commit()来触发mutation的调用，间接更新state；
 + 谁来触发：组件中：$store.dispatch('action 名称')；  // 'zzz'
@@ -93,7 +93,7 @@ new Vue({
 
   ```
 
-#### 2.4 getters
+### 2.4 getters
 + 包含多个计算属性（get）的对象
 + 谁来读取：组件中$store.getters.xxx
   ```js
@@ -103,7 +103,7 @@ new Vue({
       }
     }
   ```
-#### 2.5 modules
+### 2.5 modules
 + 包含多个module
 + 一个module 是一个store的配置对象
 + 与一个组件对应（包含有共享数据）
@@ -121,11 +121,11 @@ new Vue({
     a、在actions里，可以请求后台数据；
 + 在 mutations 里，直接去更新 state；
 + state 更新 components 组件就会渲染；
-###
+### 
 ![](../images/JavaScript/vue-vuex.jpg)
 
 ##  4 用法
-#### 4.1 向外暴露 store 对象
+### 4.1 向外暴露 store 对象
 ```js
   export default new Vuex.Store({
     state,
@@ -134,7 +134,7 @@ new Vue({
     getters
   })
 ```
-#### 4.2 组件中
+### 4.2 组件中
 ```js
   import {mapState,mapGetters,mapActions} from 'vuex'
 
@@ -147,7 +147,7 @@ new Vue({
   }
   {{xxx}}{{mmm}}@click='zzz(date)'
 ```
-#### 4.3 映射
+### 4.3 映射
 
  Store对象创建好了之后需要映射配置：
  ```js
@@ -158,7 +158,7 @@ new Vue({
     })
  ```
 
-#### 4.4 Store对象
+### 4.4 Store对象
 + 所有用vuex管理的组件中都多了一个属性 $store，它就是一个store对象
 + 属性：
 
@@ -174,7 +174,7 @@ new Vue({
 
 ## 5 使用案列
 
-#### 5.1 创建 store 对象
+### 5.1 创建 store 对象
 ``` js
   //  文件store.js
 
@@ -251,7 +251,7 @@ new Vue({
 ```
 
 
-#### 5.2 映射 store 对象
+### 5.2 映射 store 对象
 ```js
   // 文件 main.js
 
@@ -266,7 +266,7 @@ new Vue({
     store     // 所有的组件对象都多了个属性：$store, 也就是多了个store对象
   })
 ```
-#### 5.3 组件内使用 store 对象
+### 5.3 组件内使用 store 对象
 
 ```html
   // 文件 app.vue
@@ -313,7 +313,7 @@ new Vue({
 
 ```
 
-#### 5.4 组件内使用store对象 进行优化
+### 5.4 组件内使用store对象 进行优化
 上面 app.vue文件 里面的组件，在使用store对象的时候有很多重复的代码，如：
     
     ‘this.$store.getters’、
@@ -370,7 +370,7 @@ new Vue({
 
 ```
 
-#### 6 vuex结构分解
+### 6 vuex结构分解
 
 在实际项目中，vuex里面的几个对象会单独分解成几个单独的js文件，结构如下：
 

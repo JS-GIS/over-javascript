@@ -70,7 +70,7 @@ request.responseXML;			//获得XML形式的响应数据
 4:服务器返回的数据已经可以使用
 ```
 ## 四 Ajax请求相关问题
-#### 4.1 GET缓存问题
+### 4.1 GET缓存问题
  如果每次访问同一个url，那么后面的访问都会从缓存中获取，如果后台数据变化了，用户无法获取到最新的信息。
  注意：POST请求没有缓存问题。
  解决办法：AJAX请求链接中加入时间戳
@@ -78,14 +78,14 @@ request.responseXML;			//获得XML形式的响应数据
  let url = './test.php';
  url += "?" + data.data + "&_t=" + new Date().getTime();
  ```
- #### 4.2 上传文件前端表单
+ ### 4.2 上传文件前端表单
  ```html
  <form action="file_big.php" method="post" enctype="multipart/form-data">
    <input type="file" name="upFile"  >
    <input type="submit" >
 </form>
 ```
-#### 4.3 解析JSON
+### 4.3 解析JSON
 ```
 json字符串:     let jsonStr = ‘{“name”:”三国”,”category”:”文学”}’;
 json对象:	    let jsonObj = JSON.parse(jsonStr);

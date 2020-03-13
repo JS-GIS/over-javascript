@@ -1,10 +1,10 @@
 ## 一 websocket
 
-#### 1.1 websocket简介
+### 1.1 websocket简介
 
 WebSocket可以看做是HTTP协议的升级版，也是基于TCP协议的应用层协议，弥补了HTTP协议无状态等缺陷，且提供了客户端和服务器之间双工通信机制。
  
-#### 1.2 使用io.socket
+### 1.2 使用io.socket
 
 使用 npm install socket.io安装该第三方模块，且该模块需要与http模块配合使用（原因见原理）。
 ```
@@ -15,7 +15,7 @@ sock.on(‘disconnect’)
 sock.on(‘connection’)
 sock.on(‘disconnect’)
 ```
-#### 1.3 客户端代码
+### 1.3 客户端代码
 ```Html
 <!DOCTYPE html>
 <html lang="en">
@@ -90,7 +90,7 @@ sock.on(‘disconnect’)
 </body>
 </html>
 ```
-#### 1.4 服务端代码
+### 1.4 服务端代码
 ```JavaScript
 const http = require('http');
 const io = require('socket.io');
@@ -129,7 +129,7 @@ ws.on('connection',sock=>{
 });
 ```
 ## 二 原生websocket
-#### 2.1 简介
+### 2.1 简介
 websocket其实是前端H5的内容，Node等后台是自带socket服务的，而Node本身的socket很底层，在上述案例中使用了第三方包io.socket来处理。
 使用源生net包来处理socket，得到的数据经过打印是：
 ```
@@ -150,7 +150,7 @@ Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
 ```
 我们需要对该数据进行解析：每行数据都是以 : + 空格形式 存在的键值对
 
-#### 2.2 服务端代码
+### 2.2 服务端代码
 ```
 //http,socket.io都是基于net模块制作的
 const net = require('net');
@@ -218,7 +218,7 @@ net.createServer(sock=>{    //使用http接收会拒绝
     });
 }).listen(8000);
 ```
-#### 2.3 客户端代码
+### 2.3 客户端代码
 ```
 <script>
     let sock = new WebSocket('ws://localhost:8000');
@@ -245,7 +245,7 @@ net.createServer(sock=>{    //使用http接收会拒绝
     };
 </script>
 ```
-#### 2.4 数据帧解析数据
+### 2.4 数据帧解析数据
 计算机的数据都是由位构成的，1个位占据8。
 ```
  0位        1位        2位        3位

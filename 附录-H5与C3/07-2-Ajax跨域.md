@@ -1,12 +1,12 @@
 ## 一 跨域
-#### 1.1 跨域的产生
+### 1.1 跨域的产生
 如果一个域下的文件请求了和它不一样域（IP、端口、协议、二级域名）的资源，就会产生跨域请求。
 跨域解决方案：
 - iframe：包含跨域的文件，但无法对其内部进行dom操作、处理数据
 - 后台请求：比如让本地php请求跨域资源，然后ajax访问本地的php；
 - Flash
 - -JSONP：json with padding
-#### 1.2 解决跨域问题方式一 JSONP
+### 1.2 解决跨域问题方式一 JSONP
 script标签具备跨域的特性，即可以获取不同域下的文件。
 比如使用script标签引入cdn上的jquery文件就是利用了script标签的跨域功能。
 这时候如果直接使用script标签还会遇到问题：
@@ -52,7 +52,7 @@ let fnName = req.query.callback;
 res.send(fnName + "(" + "你好" + ")" );
 ```
 
-#### 1.3 jQuery中的跨域
+### 1.3 jQuery中的跨域
 jQuery已经封装好了跨域配置，可以直接使用
 ```js
 $.ajax({

@@ -3,7 +3,7 @@ React Native为移动开发者提供了移动UI组件，移动开发者只需要
 特别注意：react native在ios上仅支持ios7以上,Android仅支持Android4.1以上。  
 推荐学习地址：http://www.lcode.org/react-native/  
 ## 二 环境搭建
-#### 2.1 win环境配置Android
+### 2.1 win环境配置Android
 第一步：系统环境
 > 安装jdk，配置java环境变量即可
 > 安装git
@@ -12,8 +12,8 @@ React Native为移动开发者提供了移动UI组件，移动开发者只需要
 第二步：安卓环境
 直接安装AndroidStudio。
 
-#### 2.2 mac环境配置iOS
-#### 2.3 填坑指南
+### 2.2 mac环境配置iOS
+### 2.3 填坑指南
 http://www.lcode.org/react-native%E7%96%91%E9%9A%BE%E7%82%B9%E9%97%AE%E9%A2%98%E6%B7%B1%E5%9D%91%E6%9C%80%E5%BC%BA%E6%80%BB%E7%BB%93%E5%B8%96%E4%B8%8D%E6%96%AD%E6%9B%B4%E6%96%B0%E4%B8%AD/
 ## 三 HelloWorld
 第一步：安装依赖

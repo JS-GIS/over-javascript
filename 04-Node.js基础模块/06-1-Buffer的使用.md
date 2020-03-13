@@ -49,7 +49,7 @@ Buffer.concat(list[, totalLength])	    // Buffer的拼接
 
 ## 三 Buffer的转换
 
-### 2.1 字符串转Buffer
+###  2.1 字符串转Buffer
 
 Buffer对象可以与字符串之间相互转换，如下所示：
 ```js
@@ -63,13 +63,13 @@ buf.write(string, [offset], [length], [encoding]);
 
 由于可以不断写入内容到Buffer对象中，并且每次写入可以指定编码，所以Buffer对象中可以存在多种编码转换后的内容，需要小心的是，每种编码所用的字节长度不同，将buffer反转回字符串时需要谨慎处理。  
 
-### 2.2 Buffer转字符串
+###  2.2 Buffer转字符串
 
 ```js
 buf.toString([encoding], [start], [end]);
 ```
 
-### 2.3 Buffer不支持的编码类型
+###  2.3 Buffer不支持的编码类型
 
 Node的Buffer不支持中国的GBK，GB2312，BUG-5等编码格式。判断Buffer是否支持该编码格式：
 ```js
@@ -80,7 +80,7 @@ Buffer.isEncoding(encodibg);        // 返回 true、false
 
 ## 三 Buffer乱码
 
-### 3.1 乱码的产生
+###  3.1 乱码的产生
 
 在Buffer使用场景中，通常是以一段一段的方式传输，常见从输入流中读取内容的示例如下：
 ```js
@@ -128,7 +128,7 @@ rs.on("end", function(){
 
 在上述案例中，每3个长度能够读取到一个汉字，但是在使用流式读取时，每4个长度读取一次，在第一读取时，就会读取到多余的数据了，也即输出了  `白�`，在第4次读取时，正好又读取了原始数据的存储要求，输出了`�手`，依次类推。  
 
-### 3.2 乱码解决
+###  3.2 乱码解决
 
 流式读取可以设置编码：
 ```js

@@ -76,7 +76,7 @@ window.addEventListener("offline",function(){
 });
 ```
 ## 五 访问设备
-#### 5.1 访问摄像头
+### 5.1 访问摄像头
 ```
 新标准：部分浏览器不支持，支持的浏览器有：Fifox36+（需要moz前缀），Chrome47+（需要webkit前缀）
 navigator.getUserMedia
@@ -141,7 +141,7 @@ navigator.mediaDevices.getUserMedia
   </body> 
 </html>
 ```
-#### 5.2 传感器与摇一摇实战
+### 5.2 传感器与摇一摇实战
 现代手机都内置了传感器，通过传感器，可以感知手机的方向和位置变化。  
 手机方向变化和位置变化的解释：
 ```
