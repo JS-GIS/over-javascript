@@ -78,11 +78,10 @@ React:
 
 #### Node书籍
 
-- [《Node.js开发实战》](https://book.douban.com/subject/30373587/)：Node基础入门书籍，内容繁杂，但是都点到为止
+- [《Node.js In Action》](https://book.douban.com/subject/25870705/)：Node基础入门书籍，内容繁杂，但是都点到为止
 - [《深入浅出Node.js》](https://book.douban.com/subject/25768396/)：Node书籍的集大成者，虽然一部分技术已经过时，但是仍然值得购买并收藏
 - [《Node.js 设计模式》第2版](https://book.douban.com/subject/30159269/)：很不错的书籍
 - [《Node.js:来一打C++扩展》](https://book.douban.com/subject/30247892/)：窥探Node底层的好书
-- [《Node.js调试指南》 ](https://github.com/nswbmw/node-in-debugging)：开源书籍
 
 
 ## 附录：笔记汇总
