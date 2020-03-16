@@ -136,50 +136,52 @@ function (req, res) {
 }
 ```
 
-
-## 三 负载均衡下的session与redis
-
-在负载均衡状态下，多个服务器共同协作，用户的请求可能被不同的服务器执行，这时候其中一个服务器保存了session，那么用户下次的请求在别的服务器上，将如何获取？这时候，需要将session保存在数据库中，比如redis。
-
-## 四 Express中使用Session
-
-```JavaScript
-const express = require('express');
-const session = require('express-session');
-
-let app = express();
-
-app.use(session({
-//任意一个字符串，作为session的签名
-    secret: 'sss',  
-    name: 'session_id', //session在本地cookie的名字，可以不设置
-    //强制保存session，即使它没有变化，默认为true，建议为false
-resave: false,  
-//强制将为初始化的session存储，默认是true
-saveUninitialized: true,    
-cookie: {
-   //不设置，那么关闭浏览器就过期，
-//设置了即使在浏览页面，50000内没有操作也会过期
-        maxAge: 50000
-    },
-    // secure https下才能访问cookie
-//每次请求时强行设置cookue，将重置cookuie过期时间，默认false
-    rolling: true   
-}));
-
-app.get('/',function (req,res) {
-    console.log(req.session.info);
-    res.send('index');
-});
-app.get('/set',function (req,res) {
-    req.session.info = 'lisi';
-    res.send('set..');
-});
-
-app.listen(3000);
+用户访问`http://localhost/pathname`时，如果服务端发现查询字符串中没有session_id参数，就会将用户调转到 `http://localhost/pathname?session_id=12344567` 类似这样的地址，如果浏览器收到302状态码和Location报头，就会重新发起新的请求：
+```
+< HTTP/1.1 302 Moved Temporarily
+< Location: /pathname?session_id=12344567
 ```
 
-没有设置maxAge，那么session在浏览器关闭时候被销毁，但是有时候用户即使仍在访问，我们也需要主动销毁session，比如用户不关闭浏览器切换账户登录。
-销毁方法一：req.session.cookie.maxAge = 0;
-销毁方法二：req.session.destroy(function(err){})
+这样，新的请求到来时就能通过Session的检查。虽然该方案可以应对Cookie被禁用的情况，但是只要将地址栏中的地址发给另外一个人，他就会拥有和你相同的身份，风险更大！
 
+
+## 三 集中式Session管理
+
+在上述案例中Session都是存储在一个Node进程的变量中的。这会引起两个问题：
+- 状态过多，如登录用户数目极大，会突破Node进程的内存限制，引起频繁GC扫描，造成性能问题
+- Node多进程中不共享内存，Session就会出现错乱
+- 在负载均衡状态下，多个服务器共同协作，用户的请求可能被不同的服务器执行，这时候其中一个服务器保存了session，那么用户下次的请求在别的服务器上，将如何获取？
+
+通常Session不会被考虑直接存储在业务进程中，一般将session保存在缓存服务器中，如redis、memcache。
+
+
+## 四 Session安全
+
+Session的口令仍然是存储在Cookie中的，同样存在口令盗用的情况。通常可以对口令进行私钥加密签名，提升伪造成本。在服务端，只需要在响应数据时将口令和签名进行对比，如果签名非法，则服务端的数据立即过期即可：
+```js
+// 将值通过私钥签名，由 . 分割原值和签名
+var sign = function (val, secret) {
+    return val + '.' + crypto
+        .createHmac('sha256', secret)
+        .update(val)
+        .digest('base64')
+        .replace(/\=+$/, '');
+};
+```
+
+在响应时，设置session值到Cookie中或者跳转URL中：
+```js
+var val = sign(req.sessionID, secret);
+res.setHeader('Set-Cookie', cookie.serialize(key, val));
+```
+
+接收请求时，检查签名，对比用户提交的值：
+```js
+// 取出口令部分进行签名，对比用户提交的值
+var unsign = function (val, secret) {
+    var str = val.slice(0, val.lastIndexOf('.'));
+    return sign(str, secret) == val ? str : false;
+};
+```
+
+这样一来，即使攻击者知道口令中 . 号的前的值是服务端Session的ID的值，只要不知道私钥的值，就无法伪造签名信息。
