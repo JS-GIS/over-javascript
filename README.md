@@ -55,7 +55,6 @@ DOM编程：
 - [《JavaScript核心技术开发解密》](https://book.douban.com/subject/30190189/)：短小精悍的介绍了一些难点
 - [《你不知道JavaScript》上卷+中卷](https://book.douban.com/subject/26351021/)：笔者认为目前最好的JS深入书籍之一
 - [《JavaScript设计模式与开发实践》](https://book.douban.com/subject/26382780/)
-- [《JavaScript模式》](https://book.douban.com/subject/11506062/)
 - [《JavaScript面向对象精要》](https://book.douban.com/subject/26352658/)
 - [《JavaScript面向对象编程指南（第2版》](https://book.douban.com/subject/26302623/)
 
