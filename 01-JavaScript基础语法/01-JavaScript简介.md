@@ -6,15 +6,18 @@
 
 JavaScript（以下简写为js）是一门解释型脚本编程语言，也是当前Web开发领域的核心语言，没有之一。  
 
-该语言由网景(Netscape)公司(火狐的前身)的`Brendan Eich（布兰登·艾奇）`花费了10天时间创建，语言名称中虽然带了Java，但是和另一门编程语言Java没有任何关系，网景早期的意愿是设计一款和Java一样脚本语言。  
+该语言由网景(Netscape)公司(火狐的前身)的`Brendan Eich（布兰登·艾奇）`花费了10天时间创建，语言名称中虽然带了Java，但是和另一门编程语言Java没有任何关系。欧洲计算机制造商协会（ECMA下属TC39制定）为JavaScript提出了语法规范：ECMAScript。即各家的JS脚本语言都要以ECMAScript语法规范来开发。  
 
-由于各家引擎对JS的支持有所不同，为了统一JS的发展反向，欧洲计算机制造商协会为JavaScript提出了语法规范：ECMAScript。即各家的JS脚本语言都要以ECMAScript语法规范来开发。  
+所以通常来说，ECMAScript才是真正的脚本语言规范，而JavaScript只是其一个被大规模使用的实现，JavaScript比ECMAScript规范所定义的内容要多很多，主要包括：
+- 核心-ECMAScript：JavaScript本身必须符合TC39制定的一系列脚本语言规范，如：语法、类型、关键字、基本对象等，都与浏览器没有关系！
+- 文档对象模型-DOM：JavaScript还提供了浏览器上的文档操作API
+- 浏览器对象模型-BOM：JavaScript还提供了浏览器自身的操作API
 
-提到JavaScript时，通常指的版本是ECMAScrip3和ECMAScript5，js的当前主要版本：
+提到JavaScript时，通常其版本是ECMAScrip3和ECMAScript5，JS（JavaScript的简称）的当前主要版本有：
 - ECMAScript3：1999年标准规范，火狐的js1.5和1.8都是基于3规范
 - ECMAScript4：为了适应互联网发展出来的激进版本，由于存在大量分歧，该版本并未普及
-- ECMAScript5：2009年发布，包含了4中的一些常见功能，当前的主流版本
-- ECMAScript6：诞生于2015年，也称为ES2015，是js划时代意义的版本。引入了开发大型项目所需要的功能，JS终于不再是一门`玩具语言`。
+- **ECMAScript5**：2009年发布，包含了4中的一些常见功能，当前的主流版本
+- **ECMAScript6**：诞生于2015年，也称为ES2015，是js划时代意义的版本。引入了开发大型项目所需要的功能，JS终于不再是一门`玩具语言`。
 - ES2016：诞生于2016年，即ES7，后续版本均以年为名称，如ES2017、ES2018。ES2016中引入`async await`异步解决方案。
 
 任何编程语言都需要编程语言引擎来对代码进行解析，从而让代码转换为机器指令（因为计算机只能运行机器指令，不能直接运行代码）。常见的JS引擎有：
@@ -30,7 +33,7 @@ JavaScript（以下简写为js）是一门解释型脚本编程语言，也是�
 
 `Hello World`程序是1974年`Brian Kernighan`撰写的`《Programming in C: A Tutorial》`中首次面向大众介绍C语言时使用的最简单程序示例。后来该习惯相继被大量编程语言沿用。   
 
-本笔记中的JavaScript代码大多都依赖于Chrome运行时，故而我们需要一定的HTML文件来运行。
+本笔记中的JavaScript代码大多都依赖于Chrome运行时，故而我们需要一个的HTML文件来运行JS代码。  
 
 编写js版`Hello World`，创建helloworld.html文件，代码如下：
 ```html
@@ -51,31 +54,13 @@ JavaScript（以下简写为js）是一门解释型脚本编程语言，也是�
 
 用浏览器打开该网页，按F12打开控制台，控制台将会输出：`Hello World!`。  
 
-## 三 JavaScript书写位置
+## 三 script标签
 
 JavaScript的代码要被书写于脚本标签中，但是HTML5和HTML4的脚本标签规范不尽一致：
 - HTML4脚本标签：`<script type="application/javascript"> </script>`
 - HTML5脚本标签：`<script> </script>`
 
 贴士：本章节均使用较新的HTML5规范。 
-
-脚本标签有三种书写位置：
-```html
-<!-- 内嵌式：直接在html网页中书写代码，HelloWorld中使用了内嵌式 -->
-    <script>
-        console.log("Hello World!");
-    </script>
-
-<!-- 外联式：推荐方式。代码位于专门的js文件，由脚本标签引入 -->
-    <script src="./hello.js"> 
-    
-    </script>
-
-<!-- 3 内嵌式 极度不推荐。代码直接书写于html标签中 -->
-    <button onclick="fn()">登录</button>
-```
-
-注意：推荐使用外联式，可以将js文件合并到一个文件中。如果使用内嵌式，建议JS代码写在body标签后，以确保JS执行的正确性。  
 
 ## 四 JavaScript一些常见使用
 

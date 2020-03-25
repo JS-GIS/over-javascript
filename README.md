@@ -30,6 +30,8 @@
 
 ## 资料
 
+> 没有被录入的一部分书籍也并不代表他们不优秀，只是很多内容与下列推荐书籍重复了，尽量精读1-2本
+
 ### 网页与动画
 
 - [《HTML5与CSS3基础教程》第8版](https://book.douban.com/subject/25878992/)：HTML与CSS基础入门
@@ -77,7 +79,7 @@ React:
 
 ### Node书籍
 
-- [《Node.js In Action》](https://book.douban.com/subject/25870705/)：Node基础入门书籍，内容繁杂，但是都点到为止
+- [《Node.js In Action》](https://book.douban.com/subject/25870705/)：Node基础书籍，内容繁杂，都点到为止，适合入门
 - [《深入浅出Node.js》](https://book.douban.com/subject/25768396/)：Node书籍的集大成者，虽然一部分技术已经过时，但是仍然值得购买并收藏
 - [《Node.js 设计模式》第2版](https://book.douban.com/subject/30159269/)：很不错的书籍
 - [《Node.js:来一打C++扩展》](https://book.douban.com/subject/30247892/)：窥探Node底层的好书
